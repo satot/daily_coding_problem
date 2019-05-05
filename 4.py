@@ -10,21 +10,27 @@
 #            missing = n + 1
 #    return missing
 
+#def first_missing_positive(digits):
+#    max_d = max(digits) #O(n)
+#    count = dict()
+#    for n in digits: #O(n)
+#        if count.get(n):
+#            count[n] += 1
+#        else:
+#            count[n] = 1
+#    if len([n for n in count.keys() if n > 0]) == max_d: #O(n)
+#        return max_d + 1
+#    for n in range(1, max_d + 1): #O(n)
+#        if count.get(n):
+#            continue
+#        return n
+
 def first_missing_positive(digits):
-    max_d = max(digits) #O(n)
-    count = dict()
-    for n in digits: #O(n)
-        if count.get(n):
-            count[n] += 1
-        else:
-            count[n] = 1
-    if len([n for n in count.keys() if n > 0]) == max_d: #O(n)
-        return max_d + 1
-    for n in range(1, max_d + 1): #O(n)
-        if count.get(n):
-            continue
-        return n
-        
+    bucket_sort = [True] + [False] * len(digits)
+    for n in filter(lambda x: 0 < x < len(digits), digits):
+        bucket_sort[n] = True
+    return bucket_sort.index(False)
+
 
 a = [3, 4, -1, 1]
 assert first_missing_positive(a) == 2
