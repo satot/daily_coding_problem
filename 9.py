@@ -23,9 +23,30 @@ def largest_sum_of_nonadjacent(ls):
     return total
 
 
+#def largest_sum_of_nonadjacent(numbers):
+#    if not numbers:
+#        return 0
+#
+#    if len(numbers) <= 2:
+#        return max(numbers)
+#
+#    with_last = largest_sum_of_nonadjacent(numbers[:-2]) + numbers[-1]
+#    without_last = largest_sum_of_nonadjacent(numbers[:-1])
+#    return max(with_last, without_last)
+
 a = [2,4,6,2,5]
-assert largest_sum_of_nonadjacent(a) == 13
+s = 13
+assert largest_sum_of_nonadjacent(a) == s
 a = [5, 1, 1, 5]
-assert largest_sum_of_nonadjacent(a) == 10
+s = 10
+assert largest_sum_of_nonadjacent(a) == s
 a = [12,4,2,8,10,6]
-assert largest_sum_of_nonadjacent(a) == 26
+s = 26
+assert largest_sum_of_nonadjacent(a) == s
+
+import random
+n = 1000000
+a = []
+for i in range(n):
+    a.append(random.randint(0, n))
+print largest_sum_of_nonadjacent(a)
