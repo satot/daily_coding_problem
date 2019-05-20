@@ -8,6 +8,9 @@ def autocomplete2(query, candidates):
     next_query = query + 'a' if query[-1] == 'z' else query[:-1] + chr(ord(query[-1]) + 1)
     return dictionary[bisect(dictionary, query):bisect(dictionary, next_query)]
 
+# autocomplete3
+# maybe I need to convert candidates into trie tree
+
 
 s = "de"
 c = ["dog", "deal", "deer"]
